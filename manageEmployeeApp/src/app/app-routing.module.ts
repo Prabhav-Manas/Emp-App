@@ -25,7 +25,7 @@ const routes: Routes = [
     component: ForgotPasswordComponent,
     canActivate: [logInGuard],
   },
-  { path: '**', component: PageNotFoundComponent },
+  // { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
