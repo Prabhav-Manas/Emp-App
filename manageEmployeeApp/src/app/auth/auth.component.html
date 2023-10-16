@@ -1,0 +1,163 @@
+<div class="container shadow m-auto w-50 mt-5">
+  <div class="row">
+    <div class="col-12 header py-3">
+      <h1 class="text-danger text-center fw-bold">
+        <span class="text-warning">Emp</span>App
+      </h1>
+    </div>
+  </div>
+
+  <div class="text-center" *ngIf="isLoading">
+    <div class="lds-hourglass"></div>
+  </div>
+
+  <div class="row empAuthForm p-3" *ngIf="!isLoading">
+    <div class="col-md-6">
+      <form [formGroup]="authForm">
+        <div class="alert alert-danger" role="alert" *ngIf="error">
+          <strong>An Error occured: </strong>{{ error }}
+        </div>
+        <div class="form-floating mb-4">
+          <input
+            type="email"
+            class="form-control relative"
+            id="floatingInput"
+            placeholder="name@example.com"
+            formControlName="email"
+            [ngClass]="{'is-invalid':authForm.controls?.['email']?.invalid && authForm.controls?.['email']?.touched}"
+          />
+          <label for="floatingInput">Email address</label>
+          <small
+            *ngIf="authForm.controls?.['email']?.errors?.['required']"
+            class="invalid-feedback text-danger absolute"
+          >
+            Email is required
+          </small>
+        </div>
+        <div class="form-floating mb-4">
+          <input
+            type="{{ hide }}"
+            class="form-control relative"
+            id="floatingPassword"
+            placeholder="Password"
+            formControlName="password"
+            [ngClass]="{'is-invalid':authForm.controls?.['password']?.invalid && authForm.controls?.['password']?.touched}"
+          />
+          <label for="floatingPassword">Password</label>
+          <span class="eye">
+            <i
+              class="absolute fa fa-{{
+                hide == 'password' ? 'eye-slash' : 'eye'
+              }} random-eye"
+              id="togglePassword"
+              (click)="
+                hide == 'password' ? (hide = 'text') : (hide = 'password')
+              "
+            ></i>
+          </span>
+          <small
+            *ngIf="authForm.controls?.['password']?.errors?.['required']"
+            class="invalid-feedback text-danger absolute"
+          >
+            Password is required
+          </small>
+        </div>
+
+        <!-- <div class="form-floating mb-4" *ngIf="!logInMode">
+          <input
+            type="{{ hide }}"
+            class="form-control relative"
+            id="confirmPassword"
+            placeholder="Confirm Password"
+            formControlName="confirmPassword"
+            [ngClass]="{'is-invalid':authForm.controls?.['confirmPassword']?.invalid && authForm.controls?.['confirmPassword']?.touched}"
+          />
+          <label for="confirmPassword">Confirm Password</label>
+          <span class="eye">
+            <i
+              class="absolute fa fa-{{
+                hide == 'password' ? 'eye-slash' : 'eye'
+              }} random-eye"
+              id="togglePassword"
+              (click)="
+                hide == 'password' ? (hide = 'text') : (hide = 'password')
+              "
+            ></i>
+          </span>
+          <small
+            *ngIf="authForm.controls?.['confirmPassword']?.errors?.['required']"
+            class="invalid-feedback text-danger absolute"
+          >
+            Confirm Password is required
+          </small>
+        </div> -->
+
+        <!-- <div class="form-floating mb-3" *ngIf="!logInMode">
+          <input
+            type="text"
+            class="form-control relative"
+            id="phone"
+            placeholder="Phone"
+            formControlName="phone"
+            [ngClass]="{'is-invalid':authForm.controls?.['phone']?.invalid && authForm.controls?.['phone']?.touched}"
+          />
+          <label for="phone">Phone</label>
+          <small
+            *ngIf="authForm.controls?.['phone']?.errors?.['required']"
+            class="invalid-feedback text-danger absolute"
+          >
+            Phone Number is required
+          </small>
+        </div> -->
+
+        <div class="d-md-flex justify-content-between mt-4">
+          <button
+            type="submit"
+            class="bgAuthButtonColor text-light p-2 shadow"
+            (click)="onSubmitAuthForm()"
+          >
+            {{ logInMode ? "Signin" : "Signup" }}
+          </button>
+          <p class="mt-2 already" (click)="onModeSwitch()" style="color: blue">
+            {{
+              logInMode
+                ? "Don't have account? Signup"
+                : "Already have account? Signin"
+            }}
+          </p>
+        </div>
+        <div class="w-50" style="color: blue">
+          <p class="forgot-pass mt-3" (click)="onForgotPassword()">
+            Forgot Password ?
+          </p>
+        </div>
+      </form>
+    </div>
+
+    <!-- <div class="col-md-2 pipe text-center">|</div> -->
+    <div class="col-md-6 mt-5">
+      <h2 class="text-center">Go with Social!</h2>
+      <p class="text-center">Get started with your social accounts</p>
+      <div class="d-block text-center social mt-3">
+        <button href="" class="px-5 py-2" (click)="onGoogleSignIn()">
+          <img
+            src="../assets/google-icon.png"
+            alt=""
+            width="20px"
+            height="20px"
+          />
+          &nbsp;&nbsp;Signin via Google
+        </button>
+        <button href="" class="px-5 py-2 mt-3">
+          <img
+            src="../assets/facebook-icon.png"
+            alt=""
+            width="20px"
+            height="20px"
+          />
+          &nbsp; Signin via Facebook
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

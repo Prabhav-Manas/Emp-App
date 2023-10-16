@@ -1,0 +1,24 @@
+<footer class="text-white py-4 bgColor" *ngIf="isLoggedIn">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h2 class="text-warning">EmpApp</h2>
+        <p class="footer-statement">
+          Copyright &copy; {{ currentYear }} by
+          <span class="text-warning fw-bold owner-name">Prabhav Manas</span>.
+          All rights reserved.
+        </p>
+      </div>
+
+      <div class="col-md-4">
+        <h2 class="text-warning">Contact</h2>
+        <address class="footer-statement">
+          <span class="text-warning">Address: </span> 123 Main St, City, Country
+          <br />
+          <span class="text-warning">Email: </span> example@example.com <br />
+          <span class="text-warning">Phone: </span> +91-xxxxxx8989
+        </address>
+      </div>
+    </div>
+  </div>
+</footer>

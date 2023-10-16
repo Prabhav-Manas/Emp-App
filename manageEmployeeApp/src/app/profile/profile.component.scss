@@ -1,0 +1,36 @@
+.bgHeaderColor {
+  background-color: #618264;
+}
+.card {
+  background-color: #d0e7d2;
+  border: 0;
+  border-radius: 0;
+}
+.bgHeaderButton {
+  background-color: #2b432d;
+  border: 0;
+}
+input {
+  border-radius: 0;
+}
+.bgFormSaveButton {
+  background-color: #618264;
+  border: 0;
+}
+.bgFormSaveButton:hover {
+  background-color: #79ac78;
+}
+.bgFormDiscardButton {
+  background-color: rgb(158, 10, 10);
+  border: 0;
+}
+.bgFormDiscardButton:hover {
+  background-color: rgb(213, 53, 53);
+}
+.value {
+  color: blue;
+  font-size: 1.5rem;
+  display: block;
+  font-weight: 500;
+  line-height: 1;
+}

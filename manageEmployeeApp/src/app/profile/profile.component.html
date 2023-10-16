@@ -1,0 +1,102 @@
+<div class="container">
+  <div class="row">
+    <div class="">
+      <div class="card w-50 m-auto my-5">
+        <div class="d-flex justify-content-between bgHeaderColor p-3">
+          <h1 class="text-light">Profile</h1>
+          <button
+            type="button"
+            class="bgHeaderButton text-light px-2"
+            routerLink="/profile"
+            [queryParams]="{ EditMode: true }"
+          >
+            <i class="fa fa-pencil" aria-hidden="true"></i>&nbsp; Edit Profile
+          </button>
+        </div>
+        <hr />
+        <p class="px-2">
+          Edit Mode:
+          <span
+            class="badge"
+            [ngClass]="{ 'bg-success': !editMode, 'bg-danger': editMode }"
+            >{{ editMode }}</span
+          >
+        </p>
+        <hr />
+        <div class="p-4">
+          <form [formGroup]="profileForm">
+            <div class="mb-3">
+              <label for="name" class="form-label"
+                >{{ editMode ? "Enter" : "" }} Name:
+              </label>
+              <span *ngIf="!editMode" class="value">{{
+                profileInfoData.displayName
+              }}</span>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                formControlName="profileName"
+                [ngClass]="{'is-invalid':profileForm.controls?.['profileName']?.invalid && profileForm.controls?.['profileName']?.touched}"
+                *ngIf="editMode"
+              />
+
+              <small
+                *ngIf="profileForm.controls?.['profileName']?.errors?.['required']"
+                class="invalid-feedback text-danger"
+              >
+                Profile Name is required
+              </small>
+            </div>
+            <div class="mb-3">
+              <label for="profileUrl" class="form-label"
+                >{{
+                  editMode ? "Enter Profile Picture Url" : "Profile Picture:"
+                }}
+              </label>
+              <img
+                src="{{ profileInfoData.photoUrl }}"
+                alt=""
+                *ngIf="!editMode"
+                class="img-fluid value"
+                width="100px"
+                height="100px"
+              />
+              <input
+                type="text"
+                class="form-control"
+                id="profileUrl"
+                formControlName="profileUrl"
+                [ngClass]="{'is-invalid':profileForm.controls?.['profileUrl']?.invalid && profileForm.controls?.['profileUrl']?.touched}"
+                *ngIf="editMode"
+              />
+
+              <small
+                *ngIf="profileForm.controls?.['profileUrl']?.errors?.['required']"
+                class="invalid-feedback text-danger"
+              >
+                Profile Url is required
+              </small>
+            </div>
+            <div class="" *ngIf="editMode">
+              <button
+                type="submit"
+                class="bgFormSaveButton p-2 text-light"
+                (click)="onSaveProfileForm()"
+              >
+                Save</button
+              >&nbsp;&nbsp;
+              <button
+                type="button"
+                class="bgFormDiscardButton p-2 text-light"
+                (click)="onDiscardEditProfile()"
+              >
+                Discard
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

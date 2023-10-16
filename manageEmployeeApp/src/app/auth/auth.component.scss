@@ -1,0 +1,185 @@
+.header {
+  background-image: linear-gradient(to left, #618264, #79ac78);
+}
+.header-text {
+  font-size: 40px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  text-decoration: underline;
+}
+.empAuthForm {
+  background-color: #d0e7d2;
+}
+.empAuthForm input {
+  border: 0;
+  border-bottom: solid 1px #000;
+  border-radius: 0;
+}
+.form-control:focus {
+  outline: 0 !important;
+  box-shadow: none;
+}
+button {
+  background-color: #618264;
+  border: 0;
+}
+button:hover {
+  background-color: #79ac78;
+}
+.social button {
+  text-decoration: none;
+  color: #fff;
+  border: 0;
+  background-color: #618264;
+}
+.bgAuthButtonColor {
+  background-color: #618264;
+}
+.pipe {
+  height: 200px;
+}
+input {
+  background-color: #d0e7d2;
+}
+input:focus {
+  // border: solid 2px rgb(183, 1, 1) !important;
+  background-color: #d0e7d2;
+  border-bottom: solid 2px rgb(183, 1, 1) !important;
+}
+
+.forgot-pass,
+.already {
+  cursor: pointer;
+}
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.eye i {
+  margin-top: -11%;
+  right: 0;
+}
+
+.vertical-line {
+  height: 200px; /* you can adjust this as per your requirement */
+  border-left: 1px solid black; /* this creates the vertical line */
+  width: 0; /* ensures the div takes up minimal space */
+  margin-left: 50px; /* just for visualization, can be adjusted or removed */
+}
+
+// Spinner
+.lds-hourglass {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-hourglass:after {
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  margin: 8px;
+  box-sizing: border-box;
+  border: 32px solid #0f0281;
+  border-color: #0a75af transparent #0181a4 transparent;
+  animation: lds-hourglass 1.2s infinite;
+}
+@keyframes lds-hourglass {
+  0% {
+    transform: rotate(0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  50% {
+    transform: rotate(900deg);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  100% {
+    transform: rotate(1800deg);
+  }
+}
+// Media queries
+@media (max-width: 1400px) {
+  .eye i {
+    margin-top: -13%;
+  }
+}
+
+@media (max-width: 1250px) {
+  .eye i {
+    margin-top: -15%;
+  }
+}
+
+@media (max-width: 1080px) {
+  .eye i {
+    margin-top: -18%;
+  }
+}
+
+@media (max-width: 950px) {
+  .eye i {
+    margin-top: -21%;
+  }
+}
+
+@media (max-width: 820px) {
+  .eye i {
+    margin-top: -23%;
+  }
+}
+
+@media (max-width: 769px) {
+  .eye i {
+    margin-top: -25%;
+  }
+}
+@media (max-width: 767px) {
+  .eye i {
+    margin-top: -13%;
+  }
+}
+
+@media (max-width: 615px) {
+  .eye i {
+    margin-top: -15%;
+  }
+}
+
+@media (max-width: 550px) {
+  .eye i {
+    margin-top: -17%;
+  }
+}
+
+@media (max-width: 500px) {
+  .eye i {
+    margin-top: -20%;
+  }
+}
+
+@media (max-width: 440px) {
+  .eye i {
+    margin-top: -23%;
+  }
+}
+@media (max-width: 395px) {
+  .eye i {
+    margin-top: -28%;
+  }
+}
+
+@media (max-width: 350px) {
+  .eye i {
+    margin-top: -34%;
+  }
+}
+
+@media (max-width: 310px) {
+  .eye i {
+    margin-top: -38%;
+  }
+}

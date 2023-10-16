@@ -1,0 +1,213 @@
+<div class="container">
+  <div class="row">
+    <div class="my-2 m-auto d-flex justify-content-between text-center">
+      <h1 class="text-warning fw-bold boardHeader">Dashboard</h1>
+      <a
+        class="p-2 my-1 bgButtonColor text-light text-center"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+        >Add Employee</a
+      >
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="">
+      <div class="d-sm-flex justify-content-between mt-4">
+        <div class="d-flex">
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Search..."
+              aria-describedby="search"
+              [(ngModel)]="searchName"
+            />
+            <button class="btn btn-outline-success" type="button" id="search">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+          </div>
+          &nbsp;&nbsp;
+          <i class="fa fa-filter filter mt-1" aria-hidden="true"></i>
+        </div>
+        <!-- Pagination -->
+        <div class="">
+          <pagination-controls
+            previousLabel="Prev"
+            nextLabel="Next"
+            (pageChange)="onEmployeeBoardDataChange($event)"
+          ></pagination-controls>
+        </div>
+        <!-- Pagination -->
+      </div>
+    </div>
+    <div
+      class="col-md-6"
+      *ngFor="
+        let emp of employees
+          | empBoard : searchName
+          | paginate
+            : {
+                itemsPerPage: employeeSize,
+                currentPage: page,
+                totalItems: count
+              };
+        index as i
+      "
+    >
+      <div class="card my-3">
+        <div class="d-flex">
+          <div class="col-md-6">
+            <img src="../assets/avatar.png" class="img-fluid" alt="..." />
+          </div>
+          <div class="card-body col-md-6 mt-5">
+            <h2 class="card-title">{{ emp.name }}</h2>
+            <p class="card-text"><span>Age: </span>{{ emp.age }}</p>
+            <p class="card-text"><span>Gender: </span>{{ emp.gender }}</p>
+            <p class="card-text">
+              <span>Designation: </span>{{ emp.designation }}
+            </p>
+            <div class="">
+              <button
+                [routerLink]="['/employee-details', emp.empId]"
+                class="bg-info"
+              >
+                View</button
+              >&nbsp;&nbsp;
+              <button
+                routerLink=""
+                class="bg-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                (click)="onEditEmployee(emp.empId, i)"
+              >
+                Edit</button
+              >&nbsp;&nbsp;
+              <button
+                routerLink=""
+                class="bg-danger"
+                (click)="onDeleteEmployee(emp.empId)"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Employee</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="onDiscardEdit()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addEmpForm">
+          <div class="mb-3">
+            <label for="name" class="form-label">Full Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              formControlName="name"
+              [ngClass]="{'is-invalid':addEmpForm.controls?.['name']?.invalid && addEmpForm.controls?.['name']?.touched}"
+            />
+            <small
+              *ngIf="addEmpForm.controls?.['name']?.errors?.['required']"
+              class="invalid-feedback text-danger"
+            >
+              Name is required
+            </small>
+          </div>
+
+          <div class="mb-3">
+            <label for="age" class="form-label">Age</label>
+            <input
+              type="text"
+              class="form-control"
+              id="age"
+              formControlName="age"
+              [ngClass]="{'is-invalid':addEmpForm.controls?.['age']?.invalid && addEmpForm.controls?.['age']?.touched}"
+            />
+            <small
+              *ngIf="addEmpForm.controls?.['age']?.errors?.['required']"
+              class="invalid-feedback text-danger"
+            >
+              Age is required
+            </small>
+          </div>
+
+          <div class="mb-3">
+            <label for="gender" class="form-label">Gender</label>
+            <input
+              type="text"
+              class="form-control"
+              id="gender"
+              formControlName="gender"
+              [ngClass]="{'is-invalid':addEmpForm.controls?.['gender']?.invalid && addEmpForm.controls?.['gender']?.touched}"
+            />
+            <small
+              *ngIf="addEmpForm.controls?.['gender']?.errors?.['required']"
+              class="invalid-feedback text-danger"
+            >
+              Gender is required
+            </small>
+          </div>
+
+          <div class="mb-3">
+            <label for="designation" class="form-label">Designation</label>
+            <input
+              type="text"
+              class="form-control"
+              id="designation"
+              formControlName="designation"
+              [ngClass]="{'is-invalid':addEmpForm.controls?.['designation']?.invalid && addEmpForm.controls?.['designation']?.touched}"
+            />
+            <small
+              *ngIf="addEmpForm.controls?.['designation']?.errors?.['required']"
+              class="invalid-feedback text-danger"
+            >
+              Designation is required
+            </small>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-bs-dismiss="modal"
+          (click)="onDiscardEdit()"
+        >
+          Discard
+        </button>
+        <button
+          type="button"
+          class="btn btn-success"
+          (click)="onAddEmployee(addEmpForm.value)"
+        >
+          Add
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
