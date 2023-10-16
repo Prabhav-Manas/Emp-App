@@ -2,14 +2,21 @@ a {
   text-decoration: none;
   cursor: pointer;
 }
-.bgColor {
+.bgColor,
+.bgButtonColor {
   background-color: #79ac78;
 }
-.bgButtonColor {
+
+button {
+  border: none;
+}
+
+.boardHeaderContainer {
   background-color: #618264;
 }
-.emp-card {
+.card {
   background-color: #d0e7d2;
+  border-radius: 0;
 }
 .filter {
   font-size: 30px;
