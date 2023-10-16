@@ -14,16 +14,17 @@ import { AuthService } from '../appService/auth.service';
 })
 export class ChangePasswordComponent implements OnInit {
   changePasswordForm: any = FormGroup;
-
-  userData = localStorage.getItem('UserData');
-  parsedData: any;
   confirmPasswordFormData: any;
-
   success: boolean = false;
+  userData: any;
+  parsedData: any;
+
   constructor(private fb: FormBuilder, private _authService: AuthService) {
     this.changePasswordForm = this.fb.group({
       password: new FormControl('', [Validators.required]),
     });
+
+    this.userData = localStorage.getItem('UserData');
 
     if (this.userData !== null) {
       this.parsedData = JSON.parse(this.userData);
@@ -31,7 +32,9 @@ export class ChangePasswordComponent implements OnInit {
     console.log('ParsedUserData=> ', this.parsedData._token);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    // this.onSubmitChangePasswordFormData();
+  }
 
   onSubmitChangePasswordFormData() {
     if (this.changePasswordForm.valid) {
@@ -43,12 +46,22 @@ export class ChangePasswordComponent implements OnInit {
       };
       console.log('confirmPasswordFormData:=> ', this.confirmPasswordFormData);
 
+      // this._authService.changePassword(this.confirmPasswordFormData).subscribe(
+      //   (res) => {
+      //     console.log(res);
+      //     this.success = true;
+      //   },
+      //   (errRes) => {
+      //     console.log(errRes);
+      //   }
+      // );
+
       this._authService.changePassword(this.confirmPasswordFormData).subscribe(
-        (res) => {
+        (res: any) => {
           console.log(res);
-          this.success = true;
+          // this._authService.getProfileData(this.parsedData._token);
         },
-        (errRes) => {
+        (errRes: any) => {
           console.log(errRes);
         }
       );
