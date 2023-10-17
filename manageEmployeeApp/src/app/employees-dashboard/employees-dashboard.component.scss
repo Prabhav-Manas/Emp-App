@@ -13,6 +13,8 @@ button {
 
 .boardHeaderContainer {
   background-color: #618264;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
 }
 .card {
   background-color: #d0e7d2;
@@ -25,4 +27,11 @@ button {
 .boardHeader {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
+}
+
+@media (max-width: 768px) {
+  img {
+    // text-align: center;
+    margin: 0 auto;
+  }
 }
