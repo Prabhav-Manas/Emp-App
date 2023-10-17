@@ -12,7 +12,7 @@
   </div>
 
   <div class="row empAuthForm p-3" *ngIf="!isLoading">
-    <div class="col-12 col-md-6">
+    <div class="col-12">
       <form [formGroup]="authForm">
         <div class="alert alert-danger" role="alert" *ngIf="error">
           <strong>An Error occured: </strong>{{ error }}
@@ -135,7 +135,7 @@
     </div>
 
     <!-- <div class="col-md-2 pipe text-center">|</div> -->
-    <div class="col-12 col-md-6 mt-5">
+    <!-- <div class="col-12 mt-5">
       <h2 class="text-center">Go with Social!</h2>
       <p class="text-center">Get started with your social accounts</p>
       <div class="d-block text-center social mt-3">
@@ -158,6 +158,6 @@
           &nbsp; Signin via Facebook
         </button>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
