@@ -1,3 +1,6 @@
+.container {
+  max-width: 50%;
+}
 .header {
   background-image: linear-gradient(to left, #618264, #79ac78);
 }
@@ -119,6 +122,9 @@ input:focus {
 }
 
 @media (max-width: 1080px) {
+  .container {
+    max-width: 75%;
+  }
   .eye i {
     margin-top: -18%;
   }
@@ -153,37 +159,40 @@ input:focus {
   }
 }
 
-@media (max-width: 550px) {
-  .eye i {
-    margin-top: -17%;
+@media (max-width: 576px) {
+  .container {
+    max-width: 100%;
   }
-}
-
-@media (max-width: 500px) {
   .eye i {
-    margin-top: -20%;
+    margin-top: -7%;
   }
 }
 
 @media (max-width: 440px) {
   .eye i {
-    margin-top: -23%;
+    margin-top: -10%;
   }
 }
-@media (max-width: 395px) {
-  .eye i {
-    margin-top: -28%;
-  }
-}
+// @media (max-width: 395px) {
+//   .eye i {
+//     margin-top: -28%;
+//   }
+// }
 
 @media (max-width: 350px) {
   .eye i {
-    margin-top: -34%;
+    margin-top: -15%;
   }
 }
 
 @media (max-width: 310px) {
   .eye i {
-    margin-top: -38%;
+    margin-top: -16%;
+  }
+}
+
+@media (max-width: 260px) {
+  .eye i {
+    margin-top: -19%;
   }
 }

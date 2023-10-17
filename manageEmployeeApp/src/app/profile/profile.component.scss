@@ -5,6 +5,7 @@
   background-color: #d0e7d2;
   border: 0;
   border-radius: 0;
+  max-width: 50%;
 }
 .bgHeaderButton {
   background-color: #2b432d;
@@ -33,4 +34,10 @@ input {
   display: block;
   font-weight: 500;
   line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .card {
+    max-width: 100%;
+  }
 }

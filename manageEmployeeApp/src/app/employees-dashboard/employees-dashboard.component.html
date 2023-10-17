@@ -1,9 +1,9 @@
 <div class="container boardHeaderContainer">
   <div class="row">
-    <div class="my-2 m-auto d-flex justify-content-between text-center">
-      <h1 class="text-warning fw-bold boardHeader">Dashboard</h1>
+    <div class="my-2 m-auto d-md-flex justify-content-between text-center">
+      <h1 class="text-warning fw-bold boardHeader mx-4">Dashboard</h1>
       <a
-        class="p-2 my-1 bgButtonColor text-light text-center"
+        class="p-2 my-1 mx-4 bgButtonColor text-light text-center"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
         >Add Employee</a
@@ -58,11 +58,11 @@
       "
     >
       <div class="card my-3 shadow">
-        <div class="d-flex">
-          <div class="col-md-6">
+        <div class="d-lg-flex">
+          <div class="col-md-6 col-12 m-auto">
             <img src="../assets/avatar.png" class="img-fluid" alt="..." />
           </div>
-          <div class="card-body col-md-6 mt-5">
+          <div class="card-body col-md-6 col-12 mt-5 m-auto">
             <h2 class="card-title text-danger">{{ emp.name }}</h2>
             <p class="card-text"><span>Age: </span>{{ emp.age }}</p>
             <p class="card-text"><span>Gender: </span>{{ emp.gender }}</p>
@@ -74,8 +74,8 @@
                 [routerLink]="['/employee-details', emp.empId]"
                 class="bg-info p-2 text-light"
               >
-                View
-              </button>
+                View</button
+              >&nbsp;&nbsp;
               <button
                 routerLink=""
                 class="bg-primary p-2 text-light"
@@ -83,8 +83,8 @@
                 data-bs-target="#exampleModal"
                 (click)="onEditEmployee(emp.empId, i)"
               >
-                Edit
-              </button>
+                Edit</button
+              >&nbsp;&nbsp;
               <button
                 routerLink=""
                 class="bg-danger p-2 text-light"
