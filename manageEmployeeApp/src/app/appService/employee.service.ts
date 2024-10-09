@@ -11,40 +11,53 @@ export class EmployeeService {
 
   saveEmployeeData(employee: Employee) {
     return this.http.post<Employee>(
-      'https://empapp-1e0f0-default-rtdb.firebaseio.com/employees.json',
+      'http://localhost:9000/api/employees/add-employee',
       employee
     );
   }
 
+  // getEmployeeData() {
+  //   return this.http.get('http://localhost:9000/api/employees/employees').pipe(
+  //     map((resData: any) => {
+  //       const empArr = [];
+  //       for (const key in resData) {
+  //         if (resData.hasOwnProperty(key)) {
+  //           empArr.push({ empId: key, ...resData[key] });
+  //         }
+  //       }
+  //       return empArr;
+  //     })
+  //   );
+  // }
+
   getEmployeeData() {
     return this.http
-      .get('https://empapp-1e0f0-default-rtdb.firebaseio.com/employees.json')
+      .get('http://localhost:9000/api/employees/all-employees')
       .pipe(
         map((resData: any) => {
-          const empArr = [];
-          for (const key in resData) {
-            if (resData.hasOwnProperty(key)) {
-              empArr.push({ empId: key, ...resData[key] });
-            }
-          }
-          return empArr;
+          // Accessing the employees array explicitly
+          const empArr = resData.employees || [];
+          const formattedEmpArr = empArr.map((employee: any) => {
+            return { empId: employee._id, ...employee };
+          });
+          return formattedEmpArr;
         })
       );
   }
 
   getSingleEmployee(empId: any) {
-    return this.http.get(
-      'https://empapp-1e0f0-default-rtdb.firebaseio.com/employees/' +
-        empId +
-        '.json'
-    );
+    return this.http
+      .get(`http://localhost:9000/api/employees/employee/${empId}`)
+      .pipe(
+        map((resData: any) => {
+          return resData.employee; // Adjust based on your response structure
+        })
+      );
   }
 
   removeEmployee(empId: any) {
     return this.http.delete(
-      'https://empapp-1e0f0-default-rtdb.firebaseio.com/employees/' +
-        empId +
-        '.json'
+      `http://localhost:9000/api/employees/employee/${empId}`
     );
   }
 }
