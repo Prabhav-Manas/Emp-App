@@ -9,7 +9,7 @@ const employeeRoutes = require("./routes/employee");
 const app = express();
 
 const corsOptions = {
-  origin: ["http://localhost:4200", "https://manage-employee-app.netlify.app/"],
+  origin: ["http://localhost:4200"],
   methods: "GET, POST, PUT, PATCH, DELETE, OPTIONS",
   allowedHeaders: [
     "Content-Type",
