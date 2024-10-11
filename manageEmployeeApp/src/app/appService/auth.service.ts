@@ -23,7 +23,7 @@ export class AuthService {
   // SignUp
   signUp(email: any, password: any) {
     return this.http
-      .post<AuthResponse>('http://localhost:9000/api/users/signup', {
+      .post<AuthResponse>('https://emp-app-backend-8lny.onrender.com/api/users/signup', {
         email: email,
         password: password,
         returnSecureToken: true,
@@ -43,7 +43,7 @@ export class AuthService {
 
   signIn(email: any, password: any) {
     return this.http
-      .post<any>('http://localhost:9000/api/users/login', {
+      .post<any>('https://emp-app-backend-8lny.onrender.com/api/users/login', {
         email: email,
         password: password,
       })
