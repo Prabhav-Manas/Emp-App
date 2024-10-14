@@ -9,6 +9,7 @@ import { EmployeeService } from '../appService/employee.service';
 })
 export class EmployeeDetailsComponent implements OnInit {
   singleEmpData: any[] = [];
+  data: any = '';
   constructor(
     private activatedRoute: ActivatedRoute,
     private _empService: EmployeeService,

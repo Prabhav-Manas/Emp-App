@@ -62,10 +62,8 @@ export class EmployeesDashboardComponent implements OnInit {
       console.log('Check Employee Save:=> ', this.addEmpForm.value);
       if (this.editMode) {
         this.http
-          .put(
-            'https://empapp-1e0f0-default-rtdb.firebaseio.com/employees/' +
-              this.editEmployeeID +
-              '.json',
+          .patch(
+            `https://emp-app-backend-8lny.onrender.com/api/employees/employee/${this.editEmployeeID}`,
             empData
           )
           .subscribe(

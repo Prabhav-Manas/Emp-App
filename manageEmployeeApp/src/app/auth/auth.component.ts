@@ -29,7 +29,7 @@ export class AuthComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private _authService: AuthService,
-    private router: Router // private socialAuthService: SocialAuthService
+    private router: Router
   ) {
     this.authForm = this.fb.group({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -64,16 +64,25 @@ export class AuthComponent implements OnInit {
       authObservable.subscribe(
         (res: any) => {
           console.log(res);
+          console.log('Redirecting to employees-dashboard...');
           this.router.navigate(['employees-dashboard']);
         },
         (errRes: any) => {
           console.log(errRes);
-          this.error = errRes.error.error.message;
-          // this.error = this.errMsg[errRes.error.error.message];
+          if (
+            errRes.error &&
+            errRes.error.error &&
+            errRes.error.error.message
+          ) {
+            this.error = errRes.error.error.message; // Now it checks for existence
+          } else {
+            this.error = 'An unknown error occurred.';
+          }
         }
       );
     } else {
       // ...
+      console.log('Form is invalid.');
     }
     this.authForm.reset();
   }

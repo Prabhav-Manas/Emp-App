@@ -73,15 +73,15 @@ export class ProfileComponent implements OnInit {
       ...this.profileForm.value,
     };
 
-    this._authService.updateProfile(this.userProfileFormData).subscribe(
-      (res: any) => {
-        console.log(res);
-        this._authService.getProfileData(this.parsedData._token);
-      },
-      (errRes: any) => {
-        console.log(errRes);
-      }
-    );
+    // this._authService.updateProfile(this.userProfileFormData).subscribe(
+    //   (res: any) => {
+    //     console.log(res);
+    //     // this._authService.getProfileData(this.parsedData._token);
+    //   },
+    //   (errRes: any) => {
+    //     console.log(errRes);
+    //   }
+    // );
     this.profileForm.reset();
   }
 

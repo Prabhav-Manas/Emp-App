@@ -27,16 +27,15 @@ export class ForgotPasswordComponent implements OnInit {
   onResetPassword() {
     if (this.forgotPasswordForm.valid) {
       // console.log(this.forgotPasswordForm.value);
-
-      this._authService.forgotPassword(this.forgotPasswordForm.value).subscribe(
-        (res) => {
-          console.log(res);
-          this.success = true;
-        },
-        (errRes) => {
-          console.log(errRes);
-        }
-      );
+      // this._authService.forgotPassword(this.forgotPasswordForm.value).subscribe(
+      //   (res) => {
+      //     console.log(res);
+      //     this.success = true;
+      //   },
+      //   (errRes) => {
+      //     console.log(errRes);
+      //   }
+      // );
     }
     this.forgotPasswordForm.reset();
   }

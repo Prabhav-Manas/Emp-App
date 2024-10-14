@@ -56,15 +56,15 @@ export class ChangePasswordComponent implements OnInit {
       //   }
       // );
 
-      this._authService.changePassword(this.confirmPasswordFormData).subscribe(
-        (res: any) => {
-          console.log(res);
-          // this._authService.getProfileData(this.parsedData._token);
-        },
-        (errRes: any) => {
-          console.log(errRes);
-        }
-      );
+      // this._authService.changePassword(this.confirmPasswordFormData).subscribe(
+      //   (res: any) => {
+      //     console.log(res);
+      //     // this._authService.getProfileData(this.parsedData._token);
+      //   },
+      //   (errRes: any) => {
+      //     console.log(errRes);
+      //   }
+      // );
     }
   }
 }
