@@ -11,13 +11,13 @@ export class EmployeeService {
 
   saveEmployeeData(employee: Employee) {
     return this.http.post<Employee>(
-      'http://localhost:9000/api/employees/add-employee',
+      'https://emp-app-backend-8lny.onrender.com/api/employees/add-employee',
       employee
     );
   }
 
   // getEmployeeData() {
-  //   return this.http.get('http://localhost:9000/api/employees/employees').pipe(
+  //   return this.http.get('https://emp-app-backend-8lny.onrender.com/api/employees/employees').pipe(
   //     map((resData: any) => {
   //       const empArr = [];
   //       for (const key in resData) {
@@ -32,7 +32,7 @@ export class EmployeeService {
 
   getEmployeeData() {
     return this.http
-      .get('http://localhost:9000/api/employees/all-employees')
+      .get('https://emp-app-backend-8lny.onrender.com/api/employees/all-employees')
       .pipe(
         map((resData: any) => {
           // Accessing the employees array explicitly
@@ -47,7 +47,7 @@ export class EmployeeService {
 
   getSingleEmployee(empId: any) {
     return this.http
-      .get(`http://localhost:9000/api/employees/employee/${empId}`)
+      .get(`https://emp-app-backend-8lny.onrender.com/api/employees/employee/${empId}`)
       .pipe(
         map((resData: any) => {
           return resData.employee; // Adjust based on your response structure
@@ -57,7 +57,7 @@ export class EmployeeService {
 
   removeEmployee(empId: any) {
     return this.http.delete(
-      `http://localhost:9000/api/employees/employee/${empId}`
+      `https://emp-app-backend-8lny.onrender.com/api/employees/employee/${empId}`
     );
   }
 }

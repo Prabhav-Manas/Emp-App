@@ -11,7 +11,7 @@ const cors = require("cors");
 const app = express();
 
 const corsOptions = {
-  origin: "http://localhost:4200", // No trailing slash
+  origin: "http://localhost:4200",
   methods: "GET, POST, PUT, PATCH, DELETE, OPTIONS",
   allowedHeaders: [
     "Content-Type",

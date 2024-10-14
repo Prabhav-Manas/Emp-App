@@ -63,7 +63,7 @@ export class EmployeesDashboardComponent implements OnInit {
       if (this.editMode) {
         this.http
           .patch(
-            `http://localhost:9000/api/employees/employee/${this.editEmployeeID}`,
+            `https://emp-app-backend-8lny.onrender.com/api/employees/employee/${this.editEmployeeID}`,
             empData
           )
           .subscribe(
